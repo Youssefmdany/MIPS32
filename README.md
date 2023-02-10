@@ -1,2 +1,2 @@
 # MIPS32
-Single-cycle MIPS processor implementation
+Single-cycle MIPS processor implementation using verilog
