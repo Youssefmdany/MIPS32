@@ -1,0 +1,22 @@
+
+
+module PC_Branch(signimm,PC_Plus4,New_PC);
+  
+  input[31:0]signimm,PC_Plus4;
+  
+  output[31:0]New_PC;
+  
+  reg[31:0]New_PC; 
+  
+  always@(signimm,PC_Plus4)
+  
+  begin
+  
+  New_PC<=(signimm<<2)+PC_Plus4;
+  
+  
+  end
+  
+  
+  endmodule
+  

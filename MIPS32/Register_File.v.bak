@@ -1,0 +1,82 @@
+
+
+module Register_File(read_add1,read_add2,write_add,read_data1,read_data2,write_data,write_en,clk);
+
+input[4:0]read_add1,read_add2,write_add;
+
+input[31:0]write_data;
+
+output[31:0]read_data1,read_data2;
+
+reg[31:0]read_data1,read_data2;
+
+input write_en;
+
+input clk; //clock
+
+
+reg[31:0] Reg_File[0:31];
+
+
+
+
+
+integer i;
+
+initial 
+
+begin
+
+
+
+  for(i=0;i<32;i=i+1)
+  
+  begin
+      Reg_File[i]<=32'b0;
+		
+  end
+  
+  
+
+Reg_File[16]<=3; //$s0=3
+
+Reg_File[17]<=4; //$s1=4
+
+Reg_File[18]<=6; //$s2=6
+
+Reg_File[19]<=5; //$s3=5
+
+
+
+end
+
+
+always@(*)
+begin 
+
+
+ read_data1<=Reg_File[read_add1];
+
+ read_data2<=Reg_File[read_add2];
+  
+	
+
+
+end
+
+
+
+
+always@(write_data,write_add)
+begin 
+
+if(write_en)
+     
+	     Reg_File[write_add]<=write_data;
+             Reg_File[0]=32'b0;
+
+end
+
+
+endmodule
+
